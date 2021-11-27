@@ -19,15 +19,16 @@ import { Add } from './Add';
 
 function App() {
   const [products,setProducts]=useState([]);
-  async function getData() {
-    const data= await fetch("https://6166c4e513aa1d00170a6713.mockapi.io/products");
-    const prd=await data.json();
-    console.log(prd);
-    setProducts(prd);
-    console.log("setproducts",products);
-  }
 
-  useEffect(getData,[]);
+  useEffect(()=>{
+    async function getData() {
+      const data= await fetch("https://6166c4e513aa1d00170a6713.mockapi.io/products");
+      const prd=await data.json();
+      console.log(prd);
+      setProducts(prd);
+      console.log("setproducts",products);
+    }getData();
+  },[]);
 
   const history=useHistory();
   return (
