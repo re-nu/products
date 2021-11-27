@@ -69,7 +69,7 @@ function Update({product}) {
      // when there's no error only then onSubmit will be called
      onSubmit:(values)=>{
        console.log("onsubmit",values);
-       // add new product data
+       // update the  product data
        edit(values); 
      }
    });
