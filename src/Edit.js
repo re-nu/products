@@ -10,19 +10,18 @@ export function Edit(params) {
   const {id}=useParams();
   //initialy product is empty object, after competing the fetch product will be updated to fetched object
   const [product,setProduct]=useState({});
-
+  
+  
   //called only onces , when Edit component is render  
   useEffect(()=>{
     async function getData() {
       const data= await fetch(`https://6166c4e513aa1d00170a6713.mockapi.io/products/${id}`); //get specific id data
-      const prd=await data.json();              //convert JSON data into json array
-      console.log(prd);                          
-       setProduct(prd);                         //update product
-      console.log("setproducts",product);
-    }getData();
-  },[]);
-  return product?<Update product={product} id={id}/>:" ";    //call update component when product has some data
-}
+      const prd=await data.json();              //convert JSON data into json array                         
+       setProduct(prd);                         //update produc
+    }getData();                                 //call getData
+  },[]);                                        //call only when app is render
+  return Object.keys(product).length > 0?<Update product={product} id={id}/>:" ";    //call update component when product has some data
+}                                                                                    // empty object is true ,so checking for keys length
 
 function Update({product}) {
   const history=useHistory();
@@ -39,14 +38,14 @@ function Update({product}) {
 
    async function edit(values){
     console.log("after-update",values);
-    // const data=await fetch(
-    //   `https://6166c4e513aa1d00170a6713.mockapi.io/products/${id}`,
-    //    {method:"PUT",
-    //      body:JSON.stringify(values),
-    //      headers:{"Content-Type":"application/json",}
-    //     }
-    //   );
-    //   history.push("/desserts")    //after editing change url to /desserts 
+    const data=await fetch(
+      `https://6166c4e513aa1d00170a6713.mockapi.io/products/${product.id}`,
+       {method:"PUT",
+         body:JSON.stringify(values),
+         headers:{"Content-Type":"application/json",}
+        }
+      );
+      history.push("/desserts")    //after editing change go to /desserts 
   }
 
   const formvalid=yup.object({
@@ -60,28 +59,30 @@ function Update({product}) {
      calories:yup.number().required(),
      fat:yup.number().required(),
      cabs:yup.number().required(),
-     protien:yup.number().required(),
+     protein:yup.number().required(),
   
   })
 
-     //useFormik ,set initial values to null
-     const {handleSubmit,values,handleChange,handleBlur,errors,touched}=useFormik({
-      initialValues:{
-        name:"",
-        image:"",
-        calories:"",
-        fat:"",
-        cabs:"",
-        protien:"",
-      },
-      validationSchema:formvalid,
-      // when there's no error only then onSubmit will be called
-      onSubmit:(values)=>{
-        console.log("onsubmit",values);
-        // add new product data
-        edit(values); 
-      }
-    });
+  const {handleSubmit,values,handleChange,handleBlur,errors,touched}=useFormik({
+
+     initialValues:{
+       // name:(product.name),
+       // image:(product.image),
+       // calories:(product.calories),
+       // fat:(product.fat),
+       // cabs:(product.cabs),
+       // protein:(product.protein),
+       ...product
+     },
+     validationSchema:formvalid,
+     // when there's no error only then onSubmit will be called
+     onSubmit:(values)=>{
+       console.log("onsubmit",values);
+       // add new product data
+       edit(values); 
+     }
+   });
+     
 
   return(
     <form  onSubmit={handleSubmit}  className="add">
@@ -138,14 +139,14 @@ function Update({product}) {
        helperText={errors.cabs&&touched.cabs&&errors.cabs} 
       />
      <TextField 
-       id="protien"
-       name="protien"
-       value={values.protien}
+       id="protein"
+       name="protein"
+       value={values.protein}
        onChange={handleChange}
        onBlur={handleBlur}  
        label="Protien" 
        variant="filled" 
-       helperText={errors.protien&&touched.protien&&errors.protien}
+       helperText={errors.protein&&touched.protein&&errors.protein}
      />
      <Button  type="submit"  variant="outlined">Add Dessert </Button>
   </form>
