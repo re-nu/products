@@ -36,7 +36,7 @@ function App() {
       <AppBar position="static">
         <Toolbar variant="dense">
         <IconButton
-        // change the url on click of button so useHistory is used insted of link
+        // change the url on click of button so useHistory is used, insted of link
            onClick={()=>history.push("/")}
            edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
             <HomeIcon />

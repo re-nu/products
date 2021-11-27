@@ -75,7 +75,7 @@ export function Add(params) {
           onBlur={handleBlur} 
           label="Image" 
           variant="filled"
-          helperText={errors.name&&touched.name&&errors.image}
+          helperText={errors.image&&touched.image&&errors.image}
        />
        <TextField 
           id="calories"
@@ -85,7 +85,7 @@ export function Add(params) {
           onBlur={handleBlur} 
           label="Calories" 
           variant="filled" 
-          helperText={errors.name&&touched.name&&errors.calories}
+          helperText={errors.calories&&touched.calories&&errors.calories}
         />
        <TextField 
           id="fat"
@@ -95,7 +95,7 @@ export function Add(params) {
           onBlur={handleBlur} 
          label="Fats" 
          variant="filled" 
-         helperText={errors.name&&touched.name&&errors.fat}
+         helperText={errors.fat&&touched.fat&&errors.fat}
         />
        <TextField 
           id="cabs"
@@ -105,7 +105,7 @@ export function Add(params) {
           onBlur={handleBlur} 
          label="Cabs" 
          variant="filled"
-         helperText={errors.name&&touched.name&&errors.cabs} 
+         helperText={errors.cabs&&touched.cabs&&errors.cabs} 
         />
        <TextField 
          id="protien"
@@ -115,7 +115,7 @@ export function Add(params) {
          onBlur={handleBlur}  
          label="Protien" 
          variant="filled" 
-         helperText={errors.name&&touched.name&&errors.protien}
+         helperText={errors.protien&&touched.protien&&errors.protien}
        />
        <Button  type="submit"  variant="outlined">Add Dessert </Button>
     </form>
