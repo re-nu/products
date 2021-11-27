@@ -139,7 +139,7 @@ function Update({product}) {
        variant="filled" 
        helperText={errors.protein&&touched.protein&&errors.protein}
      />
-     <Button  type="submit"  variant="outlined">Add Dessert </Button>
+     <Button  type="submit"  variant="outlined">Update the changes </Button>
   </form>
   );
   
