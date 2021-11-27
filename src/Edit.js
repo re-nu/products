@@ -26,15 +26,6 @@ export function Edit(params) {
 function Update({product}) {
   const history=useHistory();
    console.log(product.id);
-  // const [name,setname]=useState(product.name);
-  // const [image,setimage]=useState(product.image);
-  // const [calories,setcalories]=useState(product.calories);
-  // const [cabs,setcabs]=useState(product.cabs);
-  // const [fat,setfat]=useState(product.fat);
-  // const [protein,setprotien]=useState(product.protein);
-
-  //const updated={name,image,calories,cabs,fat,protein}
-  // console.log("before update",updated)
 
    async function edit(values){
     console.log("after-update",values);
