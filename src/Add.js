@@ -15,7 +15,7 @@ const formvalid=yup.object({
    calories:yup.number().required(),
    fat:yup.number().required(),
    cabs:yup.number().required(),
-   protien:yup.number().required(),
+   protein:yup.number().required(),
 
 })
 
@@ -26,7 +26,7 @@ export function Add(params) {
    async function addNew(values) {
         console.log(values);
        const data=await fetch(
-          "https://6166c4e513aa1d00170a6713.mockapi.io/products",
+          "https://productsd.herokuapp.com/product",
            {method:"POST",
              body:JSON.stringify(values),
              headers:{"Content-Type":"application/json",}
@@ -43,7 +43,7 @@ export function Add(params) {
       calories:"",
       fat:"",
       cabs:"",
-      protien:"",
+      protein:"",
     },
     validationSchema:formvalid,
     // when there's no error only then onSubmit will be called
@@ -108,14 +108,14 @@ export function Add(params) {
          helperText={errors.cabs&&touched.cabs&&errors.cabs} 
         />
        <TextField 
-         id="protien"
-         name="protien"
-         value={values.protien}
+         id="protein"
+         name="protein"
+         value={values.protein}
          onChange={handleChange}
          onBlur={handleBlur}  
-         label="Protien" 
+         label="Protein" 
          variant="filled" 
-         helperText={errors.protien&&touched.protien&&errors.protien}
+         helperText={errors.protein&&touched.protein&&errors.protein}
        />
        <Button  type="submit"  variant="outlined">Add Dessert </Button>
     </form>

@@ -13,7 +13,7 @@ export function Delete() {
   const history=useHistory();
   async function deleteD() {
     const data=await fetch(
-      `https://6166c4e513aa1d00170a6713.mockapi.io/products/${id}`,
+      `https://productsd.herokuapp.com/product/${id}`,
        {method:"DELETE"}
     );
     // after deleting go to /desserts url page

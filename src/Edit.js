@@ -15,7 +15,7 @@ export function Edit(params) {
   //called only onces , when Edit component is render  
   useEffect(()=>{
     async function getData() {
-      const data= await fetch(`https://6166c4e513aa1d00170a6713.mockapi.io/products/${id}`); //get specific id data
+      const data= await fetch(`https://productsd.herokuapp.com/product/${id}`); //get specific id data
       const prd=await data.json();              //convert JSON data into json array                         
        setProduct(prd);                         //update produc
     }getData();                                 //call getData
@@ -25,12 +25,12 @@ export function Edit(params) {
 
 function Update({product}) {
   const history=useHistory();
-   console.log(product.id);
+   console.log(product._id);
 
    async function edit(values){
     console.log("after-update",values);
     const data=await fetch(
-      `https://6166c4e513aa1d00170a6713.mockapi.io/products/${product.id}`,
+      `https://productsd.herokuapp.com/product/${product._id}`,
        {method:"PUT",
          body:JSON.stringify(values),
          headers:{"Content-Type":"application/json",}
