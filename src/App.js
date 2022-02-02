@@ -23,7 +23,7 @@ function App() {
 // https://6166c4e513aa1d00170a6713.mockapi.io/products
   useEffect(()=>{
     async function getData() {
-      const data= await fetch("https://productsd.herokuapp.com/products");
+      const data= await fetch("https://6166c4e513aa1d00170a6713.mockapi.io/products");
       const prd=await data.json();
       console.log(prd);
       setProducts(prd);
@@ -63,7 +63,7 @@ function App() {
       <Route exact path="/">home
         <Home/>
       </Route>
-      <Route  exact path="/desserts/:_id">Details
+      <Route  exact path="/desserts/:id">Details
       {/* when path is matched call the component */}
         <Details/>
       </Route>

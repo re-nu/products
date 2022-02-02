@@ -26,7 +26,7 @@ export function Add(params) {
    async function addNew(values) {
         console.log(values);
        const data=await fetch(
-          "https://productsd.herokuapp.com/product",
+          "https://6166c4e513aa1d00170a6713.mockapi.io/products",
            {method:"POST",
              body:JSON.stringify(values),
              headers:{"Content-Type":"application/json",}

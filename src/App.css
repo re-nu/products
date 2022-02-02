@@ -8,7 +8,9 @@
   padding: 1.5rem;
   justify-content: center;
 }
-
+.procudt-card:hover{
+   transform: scale(1.1);
+}
 .details,.delete{
   display: flex;
   justify-content: space-around;

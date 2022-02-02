@@ -15,7 +15,8 @@ export function ProductCard({ name, image, id }) {
     const history=useHistory();
     console.log(id);
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <div className='procudt-card'>
+      <Card sx={{ maxWidth: 345 }}>
     <CardMedia
       component="img"
       height="160"
@@ -47,5 +48,7 @@ export function ProductCard({ name, image, id }) {
           </IconButton>
     </CardActions>
   </Card>
+    </div>
+    
   );
 }

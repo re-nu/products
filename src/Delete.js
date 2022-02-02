@@ -1,4 +1,4 @@
-import { useParams, useHistory  } from 'react-router';
+import { useParams, useHistory  } from 'react-router'
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -13,7 +13,7 @@ export function Delete() {
   const history=useHistory();
   async function deleteD() {
     const data=await fetch(
-      `https://productsd.herokuapp.com/product/${id}`,
+      `https://6166c4e513aa1d00170a6713.mockapi.io/products/${id}`,
        {method:"DELETE"}
     );
     // after deleting go to /desserts url page

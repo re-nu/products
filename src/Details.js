@@ -9,15 +9,15 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
 
 export function Details() {
-  const {_id}=useParams();
+  const {id}=useParams();
   const history=useHistory();
-  console.log(_id);
+  // console.log(id);
   const [product,setProduct]=useState({});
 
     
   useEffect(()=>{
     async function getData() {
-      const data= await fetch(`https://productsd.herokuapp.com/product/${_id}`);
+      const data= await fetch(`https://6166c4e513aa1d00170a6713.mockapi.io/products/${id}`);
       const prd=await data.json();
       console.log(prd);
        setProduct(prd);
